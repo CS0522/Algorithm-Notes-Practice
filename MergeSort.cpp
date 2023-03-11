@@ -67,8 +67,8 @@ void mergeSortFunc(int array[], int left, int right)
 int main()
 {
     // 要进行归并排序的数组
-    int array[] = {66, 12, 33, 64, 57, 27, 18};
-    mergeSortFunc(array, 0, sizeof(array) / sizeof(int));
+    int array[] = {66, 12, 33, 64, 57, 27, 18, 100};
+    mergeSortFunc(array, 0, sizeof(array) / sizeof(int) - 1);
     for (int i = 0; i < sizeof(array) / sizeof(int); i++)
     {
         cout << array[i] << " ";
