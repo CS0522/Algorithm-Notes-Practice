@@ -187,6 +187,7 @@ for (it = st.begin(); it != st.end(); it++)
 
 
 # string (P202)
+* 使用 `getline(cin, str)` 获取包含空格的字符串
 
 ## common function (P204)
 
