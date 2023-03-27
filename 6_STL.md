@@ -69,7 +69,7 @@
     - [.size()](#size-3)
 - [pair (P230)](#pair-p230)
   - [defination (P230)](#defination-p230)
-  - [traversal \&\& visit (P231)](#traversal--visit-p231)
+  - [use \&\& visit (P231)](#use--visit-p231)
   - [common function (P231)](#common-function-p231)
     - [map.insert(pair) (P232)](#mapinsertpair-p232)
 - [Algorithm (P233)](#algorithm-p233)
@@ -380,7 +380,7 @@ pair<type1, type2> name;
 pair<string, int> p;
 ```
 
-## traversal && visit (P231)
+## use && visit (P231)
 ```cpp
 pair<string, int> p;
 p.first = "hello1";
