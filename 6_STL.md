@@ -58,8 +58,11 @@
     - [.front(), .back() (P219)](#front-back-p219)
     - [.empty()](#empty)
     - [.size()](#size-2)
-- [stack (P227)](#stack-p227)
+- [priority\_queue](#priority_queue)
   - [defination](#defination)
+  - [重写 `greater`, `less`](#重写-greater-less)
+- [stack (P227)](#stack-p227)
+  - [defination](#defination-1)
   - [traversal \&\& visit](#traversal--visit)
   - [common functon](#common-functon)
     - [.push(element)](#pushelement)
@@ -83,7 +86,6 @@
 
 # vector (P191)
 * 可变长数组
-
 ## vector defination (P191)
 ```cpp
 vector<type> name;
@@ -98,9 +100,7 @@ vector<int> arrayName[arraySize];
 ## vector iterator & traversal (P192)
 ```cpp
 vector<type>::iterator it;
-```
 
-```cpp
 // 通过下标
 for (int i = 0; i <= 5; i++)
 {
@@ -118,22 +118,15 @@ for (it = vc.begin(); it != vc.end(); it++)
 * 只有在 vector & string 中，才能使用 vc.begin() + i 的写法
 
 ## common function (P193)
-
 ### .push_back(element) (P193)
-
 ### .pop_back() (P194)
 * 无返回值，无参数
-
 ### .size() (P194)
 * 返回 unsigned 类型，vector 元素的个数
-
 ### .clear() (P195)
-
 ### .insert(iterator, element) (P195)
-
 ### .erase(iterator) (P196)
 * 删除 iterator 处的元素
-
 ### .erase(start_it, last_it) (P196)
 * 删除区间 `[start_it, last_it)`
 
@@ -142,7 +135,6 @@ for (it = vc.begin(); it != vc.end(); it++)
 容器
 * 内部自动有序
 * 不含重复元素
-
 ## defination (P197)
 ```cpp
 set<type> name;
@@ -153,34 +145,26 @@ set<int> arrayName[arraySize];
 ```
 
 ## vector iterator & traversal (P198)
-set 只能通过 iterator 迭代器进行访问
-```cpp
-set<int>::iterator it;
+* set 只能通过 iterator 迭代器进行访问
+  ```cpp
+  set<int>::iterator it;
 
-for (it = st.begin(); it != st.end(); it++)
-{
-    // code
-}
-```
+  for (it = st.begin(); it != st.end(); it++)
+  {
+      // code
+  }
+  ```
 
 ## common function (P199)
-
 ### .insert(element)
 * 插入后自动进行排序和去重
-
 ### .find(element)
 * 返回 iterator 迭代器
-
 ### .erase(iterator)
-
 ### .erase(element)
-
 ### .erase(start_it, last_it)
-
 ### .size()
-
 ### .clear()
-
 ## multiset, unordered_set
 * multiset 允许重复，自动排序
 * unordered_set 不排序，自动去重
@@ -188,9 +172,7 @@ for (it = st.begin(); it != st.end(); it++)
 
 # string (P202)
 * 使用 `getline(cin, str)` 获取包含空格的字符串
-
 ## common function (P204)
-
 ### operator+= 
 ```cpp
 string str1;
@@ -204,36 +186,25 @@ str3 = str1 + str2;
 
 ### ==, >, <, !=
 * 按字典顺序比大小
-
 ### .length(), .size()
 * 都是返回 string 的长度
-
 ### .insert(pos, str) (P205)
 * 在 [pos] 处插入 str
-
 ### .insert(str1_it, str2_it_start, str2_it_end)
 * 在 str1 的 str1_it 位置，插入 str2 的 `[str2_it_start, str2_it_end)` 区间的子字符串
-
 ### .erase(it) (P206)
 * 删除迭代器 it 位置的字符
-
 ### .erase(first_it, last_it)
 * `[first_it, last_it)` 区间
-
 ### .erase(pos, length)
 * 删除 [pos] 处开始 length 个字符
-
 ### .clear()
-
 ### .substr(pos, length) (P207)
 * 返回从 [pos] 处开始，长度为 length 的子串
-
 ### .find(str2, pos) (P208)
 * 从 [pos] 处开始查找字符串 str2，并返回 str2 开始的下标
-
 ### .replace(pos, length, str2) (P209)
 * 从 [pos] 处开始长度为 length 的子串，替换为 str2
-
 ### .replace(it_start, it_end, str2)
 * `[it_start, it_end)` 区间的子串替换为 str2
 
@@ -241,7 +212,6 @@ str3 = str1 + str2;
 # map (P213)
 * 映射，建立 type1 类型到 type2 类型的映射
 * Map 会以 Key 从小到大的顺序自动排序 (因为内部是红黑树)
-
 ## defination (P213)
 ```cpp
 map<type1, type2> mp;
@@ -276,25 +246,18 @@ for (it = mp1.begin(); it != mp1.end(); it++)
 ```
 
 ## common function (P215)
-
 ### .insert(pair)
 * 见 [pair 的 map.insert(pair)](#mapinsertpair-p232)
-
 ### .find(key)
 * 返回 键 == key 的迭代器
-
 ### .erase(it)
 * 删除迭代器 it 位置的键值对
-
 ### .erase(key)
 * key 为要删除的键
-
 ### .erase(first_it, last_it)
 * 删除区间 `[first_it, last_it)` 
-
 ### .size()
 * map中的映射对数
-
 ### .clear()
 * 清空 map
 
@@ -305,7 +268,6 @@ for (it = mp1.begin(); it != mp1.end(); it++)
 
 # queue (P218)
 队列，适用于广度优先搜索
-
 ## defination (P218)
 ```cpp
 queue<type> qe;
@@ -321,25 +283,46 @@ q.back()
 ```
 
 ## common function (P219)
-
 ### .push(element) (P219)
 * 入队 (队尾)
-
 ### .pop() (P219)
 * 出队 (队首)
-
 ### .front(), .back() (P219)
 * 返回队首和队尾的元素
-
 ### .empty()
 * 返回 true, false
-
 ### .size()
 * 返回 queue 内的元素个数
 
 
-# stack (P227)
+# priority_queue 
+* [CSDN](https://blog.csdn.net/geter_CS/article/details/102580332)
 
+## defination
+```cpp
+// 第一个参数T：元素（element）类型
+// 第二个参数Container：必须是容器类型Container，用来存储元素（element），其类型必须是第一个参数
+// 第三个参数Compare：比较形式，大根堆: less，小根堆: greater。理解: 子节点 is less(greater) than 父节点
+priority_queue<int,vector<int>,less<int> > big_heap;
+
+priority_queue<int,vector<int>,greater<int> > small_heap;
+```
+
+## 重写 `greater`, `less`
+```cpp
+// 使用结构体实现
+struct cmp
+{  
+    //对新的数据类型的 < 进行重写
+    bool operator()(Node *a,Node *b){
+        return a->val > b->val;
+    }
+};
+priority_queue<Node*, vector<Node*>, cmp> heap; // 小根堆
+```
+
+
+# stack (P227)
 ## defination 
 ```cpp
 stack<type> sk;
@@ -354,21 +337,15 @@ int a = sk.top()
 ```
 
 ## common functon
-
 ### .push(element)
-
 ### .top()
 * 返回栈顶元素
-
 ### .pop()
-
 ### .empty()
-
 ### .size()
 
 
 # pair (P230)
-
 ## defination (P230)
 ```cpp
 #include <utility>
@@ -396,7 +373,6 @@ cout << p.first << " " << p.second;
 ## common function (P231)
 * 可以直接使用 `<`, `==`, `!=` 等进行比较大小
 * 先比较 `p.first`；若不相等，再比较 `p.second`
-
 ### map.insert(pair) (P232)
 ```cpp
 map<string, int> mp;
